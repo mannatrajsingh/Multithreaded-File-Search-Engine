@@ -1,0 +1,37 @@
+Multithreaded File Search Engine
+
+This project is a multithreaded file search engine implemented in C, designed to efficiently search for a target word across large collections of files. The system uses POSIX threads to process files concurrently, enabling faster execution compared to a single-threaded approach, especially for directories containing large text and PDF files.
+
+The program dynamically assigns files to worker threads using a shared work queue protected by mutexes, ensuring thread-safe execution and balanced workload distribution. PDF files are handled by converting them to text before searching, allowing uniform processing across different file types. Search results are displayed in real time through a simple graphical interface, providing continuous feedback while the search is in progress.
+
+This project was built to apply core operating systems concepts such as concurrency, synchronization, and parallel execution in a practical setting, with emphasis on writing safe and efficient multithreaded code.
+
+What I Learned
+
+Designing and debugging multithreaded systems in C
+
+Using mutexes to safely coordinate shared resources
+
+Implementing dynamic work allocation to avoid thread starvation
+
+Working with low-level file systems and external utilities
+
+Improving performance through parallelism
+
+Technologies Used
+
+C
+
+POSIX Threads (pthreads)
+
+File system traversal and file I/O
+
+Poppler utilities for PDF text extraction
+
+Why This Project
+
+I built this project to strengthen my understanding of systems programming and concurrency. It reflects the kind of low-level problem solving and performance-aware design that underpins large-scale software systems.
+
+Author
+
+Mannat Raj Singh
