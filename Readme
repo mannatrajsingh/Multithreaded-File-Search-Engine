@@ -1,37 +1,37 @@
-Multithreaded File Search Engine
+# Multithreaded File Search Engine
 
-This project is a multithreaded file search engine implemented in C, designed to efficiently search for a target word across large collections of files. The system uses POSIX threads to process files concurrently, enabling faster execution compared to a single-threaded approach, especially for directories containing large text and PDF files.
+A high-performance multithreaded file search engine implemented in C, designed to efficiently search for target keywords across large directory trees.
 
-The program dynamically assigns files to worker threads using a shared work queue protected by mutexes, ensuring thread-safe execution and balanced workload distribution. PDF files are handled by converting them to text before searching, allowing uniform processing across different file types. Search results are displayed in real time through a simple graphical interface, providing continuous feedback while the search is in progress.
+## Features
+- Parallel file scanning using POSIX threads
+- Thread-safe shared work queue using mutexes
+- Supports searching in text and PDF files
+- Real-time search progress and results display
+- Optional Python-based frontend for user interaction
 
-This project was built to apply core operating systems concepts such as concurrency, synchronization, and parallel execution in a practical setting, with emphasis on writing safe and efficient multithreaded code.
+## Tech Stack
+- **C** (POSIX Threads, Mutex Synchronization)
+- **Python** (Frontend Interface)
+- **Operating Systems Concepts**: Concurrency, Synchronization, Parallelism
 
-What I Learned
+## How It Works
+1. Files are dynamically assigned to worker threads from a shared queue.
+2. Mutex locks ensure safe access to shared resources.
+3. PDF files are converted to text before keyword matching.
+4. Results are streamed live as files are processed.
 
-Designing and debugging multithreaded systems in C
+## Usage
+```bash
+gcc multithread_file_search.c -o multithread_file_search -lpthread
+./multithread_file_search <directory_path> <keyword>
+For GUI-based interaction:
 
-Using mutexes to safely coordinate shared resources
+python3 frontend.py
 
-Implementing dynamic work allocation to avoid thread starvation
+Learning Outcomes
 
-Working with low-level file systems and external utilities
+Practical understanding of multithreading and synchronization
 
-Improving performance through parallelism
+Experience with real-world concurrency challenges
 
-Technologies Used
-
-C
-
-POSIX Threads (pthreads)
-
-File system traversal and file I/O
-
-Poppler utilities for PDF text extraction
-
-Why This Project
-
-I built this project to strengthen my understanding of systems programming and concurrency. It reflects the kind of low-level problem solving and performance-aware design that underpins large-scale software systems.
-
-Author
-
-Mannat Raj Singh
+Performance comparison between single-threaded and multithreaded execution
